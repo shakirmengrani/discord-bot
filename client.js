@@ -8,7 +8,7 @@ const client = new Client({
     ]
 });
 
-COMMANDS(client);
+COMMANDS.collect(client);
 EVENTS(client);
 
 module.exports = client;

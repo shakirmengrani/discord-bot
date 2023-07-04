@@ -1,14 +1,14 @@
 const { REST, Routes } = require("discord.js");
 const { PING } = require("./commands/ping");
+const { FUN } = require("./commands");
 
 const rest = new REST().setToken(process.env.TOKEN);
-const commands = []
+const commands = [
+    PING.data.toJSON(),
+    FUN.data.toJSON()
+]
 module.exports = async (client) => {
     try {
-        
-        for (const [key] of client.commands) {
-            commands.push(client.commands.get(key).data.toJSON());
-        }
 		console.log(`Started refreshing ${commands.length} application (/) commands.`);
 
 		// The put method is used to fully refresh all commands in the guild with the current set
